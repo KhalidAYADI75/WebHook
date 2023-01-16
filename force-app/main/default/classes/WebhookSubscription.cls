@@ -6,7 +6,7 @@ global with sharing class WebhookSubscription {
             RestRequest request = RestContext.request;
             RestResponse response = RestContext.response;
             GitHub_PushDetail__c Detail = new GitHub_PushDetail__c();
-            Detail.Commit_message__c = 'le troixieme envoi';
+            Detail.Commit_message__c = request.requestBody;
             insert Detail;
 
         } catch (Exception e) {
