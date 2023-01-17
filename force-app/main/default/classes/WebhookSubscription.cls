@@ -11,7 +11,7 @@ global with sharing class WebhookSubscription {
     //      JSONParser parser = JSON.createParser(request.requestBody.toString());
     //      system.debug ('teste : ' + parser);
             Detail.Description__c =  'encore moi!';
-            update Detail;
+            insert Detail;
 
         } catch (Exception e) {
             system.debug(e.getMessage());
