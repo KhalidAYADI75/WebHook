@@ -5,15 +5,11 @@ global with sharing class WebhookSubscription {
         try {
             RestRequest request = RestContext.request;
             RestResponse response = RestContext.response;
-            GitHub_PushDetail__c Detail = new GitHub_PushDetail__c();
-            Detail.Commit_message__c = 'encore moi';
-        
-            Map<String, Object> fieldMap = (Map<String, Object>)JSON.deserializeUntyped(request.requestBody.toString()) ;
-
-    //      JSONParser parser = JSON.createParser(request.requestBody.toString());
-            
-            Detail.Description__c = (String) fieldMap.get('message');        
-       
+            GitHub_PushDetail__c Detail = new GitHub_PushDetail__c();        
+            Map<String, Object> objectMap = (Map<String, Object>)JSON.deserializeUntyped(request.requestBody.toString()) ;
+            Map<String, Object> objectMap1 = (Map<String, Object>) objectMap.get('head_commit');
+    //      JSONParser parser = JSON.createParser(request.requestBody.toString());     
+            Detail.Commit_message__c = (String)objectMap1.get('message');
             insert Detail;
 
         } catch (Exception e) {
