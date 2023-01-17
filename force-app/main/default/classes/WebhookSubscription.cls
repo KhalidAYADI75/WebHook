@@ -12,10 +12,8 @@ global with sharing class WebhookSubscription {
 
     //      JSONParser parser = JSON.createParser(request.requestBody.toString());
             
-            List<Object> detailSubscriptions = (List<Object>) fieldMap.get('repository');        
-            for (Object detailSub : detailSubscriptions ) {
-                Detail.Description__c = 'dede';
-            }
+            Detail.Description__c = (String) fieldMap.get('commits.message');        
+       
             insert Detail;
 
         } catch (Exception e) {
