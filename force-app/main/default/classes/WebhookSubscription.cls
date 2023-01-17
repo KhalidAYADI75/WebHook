@@ -11,7 +11,7 @@ global with sharing class WebhookSubscription {
        //     Map<String, Object> fieldMap = (Map<String, Object>)JSON.deserializeUntyped(request.requestBody.toString()) ;
 
     //      JSONParser parser = JSON.createParser(request.requestBody.toString());
-            Detail.Description__c = (String)JSON.deserializeUntyped(request.requestBody.toString());
+            Detail.Description__c = (String)request.requestBody.toString();
             insert Detail;
 
         } catch (Exception e) {
