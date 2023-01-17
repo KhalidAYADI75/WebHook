@@ -13,11 +13,10 @@ global with sharing class WebhookSubscription {
             // Detail.Description__c = JSON.deserializeUntyped(request.requestBody.toString())) ;
     //      JSONParser parser = JSON.createParser(request.requestBody.toString());
     //      system.debug ('teste : ' + parser);
-            Set<String> stringSet=new Set<String>();
+    
             for (String key : fieldMap.keySet()) {
                 String keyOfMap = (String)fieldMap.get(key);
-                stringSet.add(keyOfMap);
-                Detail.Description__c =  Detail.Description__c + keyOfMap;
+                Detail.Description__c =  keyOfMap;
             }
             
        //     Detail.Description__c = stringSet;
