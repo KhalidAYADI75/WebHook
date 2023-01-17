@@ -9,19 +9,9 @@ global with sharing class WebhookSubscription {
             Detail.Commit_message__c = 'encore moi';
             System.debug (request.requestBody.toString());
             Map<String, Object> fieldMap = (Map<String, Object>)JSON.deserializeUntyped(request.requestBody.toString()) ;
-           system.debug('fieldmap : ' + fieldMap);
-            // Detail.Description__c = JSON.deserializeUntyped(request.requestBody.toString())) ;
+
     //      JSONParser parser = JSON.createParser(request.requestBody.toString());
-    //      system.debug ('teste : ' + parser);
-    
-            for (String key : fieldMap.keySet()) {
-                String keyOfMap = (String)fieldMap.get(key);
-                Detail.Description__c =  keyOfMap;
-            }
-            
-       //     Detail.Description__c = stringSet;
-            
-        //    Detail.Description__c = fieldMap.toString();
+            Detail.Description__c = request.requestBody.toString();
             insert Detail;
 
         } catch (Exception e) {
