@@ -7,11 +7,11 @@ global with sharing class WebhookSubscription {
             RestResponse response = RestContext.response;
             GitHub_PushDetail__c Detail = new GitHub_PushDetail__c();
             Detail.Commit_message__c = 'encore moi';
-        //    Detail.Description__c = JSON.deserializeUntyped(request.requestBody.toString()) ;
-    //    JSONParser parser = JSON.createParser(request.requestBody.toString());
-    //    system.debug ('teste : ' + parser);
-        Detail.Description__c =  'encore moi!';
-            insert Detail;
+    //      Detail.Description__c = JSON.deserializeUntyped(request.requestBody.toString()) ;
+    //      JSONParser parser = JSON.createParser(request.requestBody.toString());
+    //      system.debug ('teste : ' + parser);
+            Detail.Description__c =  'encore moi!';
+            update Detail;
 
         } catch (Exception e) {
             system.debug(e.getMessage());
