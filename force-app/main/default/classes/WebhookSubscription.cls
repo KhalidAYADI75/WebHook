@@ -13,7 +13,7 @@ global with sharing class WebhookSubscription {
             // Detail.Description__c = JSON.deserializeUntyped(request.requestBody.toString())) ;
     //      JSONParser parser = JSON.createParser(request.requestBody.toString());
     //      system.debug ('teste : ' + parser);
-            Detail.Description__c = (String)fieldMap.get('head_commit.message');
+            Detail.Description__c = (String)fieldMap.get('repository.id');
             //d
         //    Detail.Description__c = fieldMap.toString();
             insert Detail;
