@@ -9,6 +9,7 @@ global with sharing class WebhookSubscription {
             Detail.Commit_message__c = 'encoire moi';
         //    Detail.Description__c = JSON.deserializeUntyped(request.requestBody.toString()) ;
         JSONParser parser = JSON.createParser(request.requestBody.toString());
+        system.debug ('test : ' + parser);
         Detail.Description__c = parser;
             insert Detail;
 
