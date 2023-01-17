@@ -6,10 +6,10 @@ global with sharing class WebhookSubscription {
             RestRequest request = RestContext.request;
             RestResponse response = RestContext.response;
             GitHub_PushDetail__c Detail = new GitHub_PushDetail__c();        
-            Map<String, Object> objectMap = (Map<String, Object>)JSON.deserializeUntyped(request.requestBody.toString()) ;
-            Map<String, Object> objectMap1 = (Map<String, Object>) objectMap.get('head_commit');
+            Map<String, Object> requestPayload = (Map<String, Object>)JSON.deserializeUntyped(request.requestBody.toString()) ;
+            Map<String, Object> requestPayloadCommit = (Map<String, Object>) requestPayload.get('head_commit');
     //      JSONParser parser = JSON.createParser(request.requestBody.toString());     
-            Detail.Commit_message__c = (String)objectMap1.get('message');
+            Detail.Commit_message__c = (String)requestPayloadCommit.get('message');
             insert Detail;
 
         } catch (Exception e) {
