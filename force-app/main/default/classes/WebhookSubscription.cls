@@ -17,7 +17,7 @@ global with sharing class WebhookSubscription {
     //            Detail.Description__c = (String)fieldMap.get(key);
      //       }
            
-            Detail.Description__c = (String)fieldMap.fieldMap.keySet();
+            Detail.Description__c = (String)fieldMap.keySet();
         //    Detail.Description__c = fieldMap.toString();
             insert Detail;
 
