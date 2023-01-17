@@ -14,7 +14,7 @@ global with sharing class WebhookSubscription {
             
             List<Object> detailSubscriptions = (List<Object>) fieldMap.get('repository');        
             for (Object detailSub : detailSubscriptions ) {
-                Detail.Description__c = (String)detailSub;
+                Detail.Description__c = 'dede';
             }
             insert Detail;
 
