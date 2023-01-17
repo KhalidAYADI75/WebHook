@@ -8,10 +8,14 @@ global with sharing class WebhookSubscription {
             GitHub_PushDetail__c Detail = new GitHub_PushDetail__c();
             Detail.Commit_message__c = 'encore moi';
         
-       //     Map<String, Object> fieldMap = (Map<String, Object>)JSON.deserializeUntyped(request.requestBody.toString()) ;
+            Map<String, Object> fieldMap = (Map<String, Object>)JSON.deserializeUntyped(request.requestBody.toString()) ;
 
     //      JSONParser parser = JSON.createParser(request.requestBody.toString());
-            Detail.Description__c = (String)request.requestBody.toString();
+            
+            List<Object> detailSubscriptions = (List<Object>) fieldMap.get('repository');        
+            for (Object detailSub : detailSubscriptions ) {
+                Detail.Description__c = (String)detailSub;
+            }
             insert Detail;
 
         } catch (Exception e) {
